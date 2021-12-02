@@ -1,0 +1,97 @@
+
+  #main{
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    background-color:#f299878a;
+    display: flex;
+    text-align: center; 
+  }
+  .card {
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 275px;
+    height: 350px;
+    background: #f29987b4;
+    box-shadow: 6px 8px 8px gray ;
+    margin: 0px 32px 0px 0px;
+    padding: 10px;
+    line-height: 0.7;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .link{
+    padding:4px 12px 4px 12px;
+    margin: 4px;
+    float: left;
+    text-decoration: none;
+    color: black;
+  }
+  .link:hover{
+    background: #ffbdb0;
+    border-radius: 12px;
+  }
+  .link.router-link-exact-active {
+    background: #ffd1c9;
+    border-radius: 12px;
+  }
+  #img-info-card {
+    border: 2px solid black;
+    border-radius: 100px;
+    margin: 10px;
+  }
+  li{
+    margin-bottom: 15px;
+  }
+  #nav {
+    width: 98%;
+    background:#f29987b4;
+    border-radius: 8px;
+    box-shadow: 6px 8px 8px gray ;
+    border: black solid 2px;
+    position: fixed;
+    z-index: 100;
+  }
+  #page{
+    padding:60px 0px 0px 0px;
+
+  }
+  #card-text{
+    margin: 15px;
+  }
+  .form-field input  {
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 5px;
+    height: 20px;
+  }
+  
+  #textarea-form-card{
+    border-radius: 4px;
+    border: 2px solid black;
+    padding: 10px 11px;
+    height: 160px;
+    margin: 5px;
+  }
+  .submit-btn{
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 5px;
+  }
+
+  .submit-btn:hover{
+    background: #cccccc;
+  }
+
+  .auth-layout{
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.page-container{
+  padding: 56px 0px 0px 0px;
+}

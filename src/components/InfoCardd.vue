@@ -7,7 +7,7 @@
       <div>
         БСБО-06-19
       </div>
-      <img src = "@/assets/ava.jpg" width="150" height="150" id ="img">
+      <img src = "@/assets/ava.jpg" width="150" height="150" id ="img-info-card">
       <div>
         Мои навыки:
       </div>
@@ -29,17 +29,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-#img {
-  border: 2px solid black;
-  border-radius: 100px;
-  margin: 10px;
-}
-
-li{
-  margin-bottom: 15px;
-}
-
-</style>

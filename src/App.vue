@@ -1,20 +1,23 @@
 <template>
 <div id="main">
-  <router-link to ="/" >
-  to home page
-  </router-link>
-  <br/>
-  <router-link to = "/info">
-    to info page
-  </router-link>
-  <router-view/>
+    <component :is="layout">
+      <router-view/>
+    </component>
 </div>
 </template>
 
 <script>
-// export default {
-//   name: "App",
-//   components: {
-//   },
-// };
+import AuthLayout from '@/Layouts/AuthLayout';
+import MainLayout from '@/Layouts/MainLayout';
+export default {
+  name: "App",
+  components: {
+    AuthLayout,MainLayout
+  },
+  computed: {
+    layout(){
+      return this.$route.meta?.layout || 'main-layout'
+    }
+  }
+};
 </script>
