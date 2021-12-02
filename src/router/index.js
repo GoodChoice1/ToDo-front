@@ -1,59 +1,60 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'HomePage',
+    path: "/",
+    name: "HomePage",
     meta: {
-      title: 'Список дел',
-      layout: 'main-layout'
+      title: "Список дел",
+      layout: "main-layout",
     },
-    component: () => import('@/pages/HomePage.vue')
+    component: () => import("@/pages/HomePage.vue"),
   },
   {
-    path: '/info',
-    name: 'InfoPage',
+    path: "/info",
+    name: "InfoPage",
     meta: {
-      title: 'Информация',
-      layout: 'main-layout'
+      title: "Информация",
+      layout: "main-layout",
     },
-    component: () => import('@/pages/InfoPage.vue')
+    component: () => import("@/pages/InfoPage.vue"),
   },
   {
-    path: '/login',
-    name: 'login',
+    path: "/login",
+    name: "login",
     meta: {
-      title: 'Авторизация',
-      layout: 'auth-layout'
+      title: "Авторизация",
+      layout: "auth-layout",
     },
-    component: () => import('@/pages/LoginPage.vue')
+    component: () => import("@/pages/LoginPage.vue"),
   },
   {
-    path: '/registration',
-    name: 'registration',
+    path: "/registration",
+    name: "registration",
     meta: {
-      title: 'Регистрация',
-      layout: 'auth-layout'
+      title: "Регистрация",
+      layout: "auth-layout",
     },
-    component: () => import('@/pages/RegistrationPage.vue')
+    component: () => import("@/pages/RegistrationPage.vue"),
   },
-  {
-    path: '/logout',
-    name: 'logout',
-    meta: {
-      title: 'Выход'
-    },
-    component: () => import('@/pages/LogoutPage.vue')
-  }
-]
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  const { accessToken } = localStorage;
+  if (accessToken || to.name === "login" || to.name === "registration") {
+    next();
+  } else {
+    next("/login");
+  }
+});
+
+export default router;

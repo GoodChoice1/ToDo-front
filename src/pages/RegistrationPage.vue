@@ -55,13 +55,12 @@ export default {
         },
         async onFormSubmit(){
             try {
-                const data = await register(
+                await register(
                     this.login.trim(),
                     this.password.trim(),
                     this.email.trim(),
                     this.name.trim(),
                     )
-                console.warn({data})
             } catch (error) {
                 console.error({ error });
             }

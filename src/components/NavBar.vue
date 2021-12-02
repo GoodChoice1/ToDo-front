@@ -1,13 +1,31 @@
 <template>
     <div id="nav">
       <router-link class="link" to ="/">
-        Home page
+        Список дел
       </router-link>
       <router-link class="link" to = "/info">
-        Info page
+        Инфо
       </router-link>
-      <router-link class="link" to = "/logout">
-        Logout
-      </router-link>
+      <a class="link" @click="onLogoutClicked">
+        Выход
+      </a>
     </div>
 </template>
+
+<script>
+import { logout } from '@/netClient/dataService.js'
+
+export default {
+  name: "NavBar",
+  methods: {
+    async onLogoutClicked(){
+            try {
+                await logout();
+                this.$router.push('/login');
+            } catch (error) {
+                console.error({ error });
+            }
+        }
+  }
+}
+</script>

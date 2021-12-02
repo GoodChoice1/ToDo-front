@@ -27,7 +27,7 @@
 </template>
 
 <script>
- import {login} from '@/netClient/dataService.js'
+import { login } from '@/netClient/dataService.js'
 export default {
     name: 'LoginPage',
     data: () => ({
@@ -40,12 +40,13 @@ export default {
         },
         async onFormSubmit(){
             try {
-                const data = await login(
+                const token = await login(
                     this.login.trim(),
                     this.password.trim(),
                     )
-                console.warn({data})
-                this.$router.push('/')
+                if (token) {
+                    this.$router.push('/');
+                }
             } catch (error) {
                 console.error({ error });
             }
