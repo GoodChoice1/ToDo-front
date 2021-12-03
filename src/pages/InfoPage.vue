@@ -1,17 +1,32 @@
 <template>
   <div id="main">
-      <InfoCard/>
-      <FormCard/>
+    <li>
+      <div id="login">Логин: {{userInfo.login}}</div>
+      <div id="email">Почта: {{userInfo.email}} </div>
+      <div id="name">Имя: {{userInfo.password}}</div>
+    </li>
   </div>
 </template>
 
 <script>
-import InfoCard from "@/components/InfoCardd.vue";
-import FormCard from "@/components/FormCard.vue";
+import { getUser } from '@/netClient/dataService';
+// import { updateUser } from '@/netClient/dataService';
 export default {
   name: "InfoPage",
-  components: {
-    FormCard,InfoCard
-  },
+  data: () => ({
+        userInfo: {},
+    }),
+  mounted(){
+        this.getUserInfo();
+    },
+  methods:{
+    async getUserInfo(){
+      try {
+        this.userInfo = await getUser();
+      } catch (error) {
+        console.error({ error });
+      }
+    }
+  }
 };
 </script>

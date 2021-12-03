@@ -1,20 +1,17 @@
 
   #main{
     font-family: Comic Sans MS, Comic Sans, cursive;
-    background-color:#f299878a;
+    background-color:#ffbbae;
     display: flex;
-    text-align: center; 
+    text-align: center;
   }
-  .card {
+  .todo {
     border: 2px solid black;
     border-radius: 8px;
-    width: 275px;
-    height: 350px;
-    background: #f29987b4;
+    background:#f29987;
     box-shadow: 6px 8px 8px gray ;
-    margin: 0px 32px 0px 0px;
+    margin: 32px 32px 0px 0px;
     padding: 10px;
-    line-height: 0.7;
     display: inline-block;
     vertical-align: top;
   }
@@ -33,17 +30,12 @@
     background: #ffd1c9;
     border-radius: 12px;
   }
-  #img-info-card {
-    border: 2px solid black;
-    border-radius: 100px;
-    margin: 10px;
-  }
   li{
     margin-bottom: 15px;
   }
   #nav {
     width: 98%;
-    background:#f29987b4;
+    background:#f29987;
     border-radius: 8px;
     box-shadow: 6px 8px 8px gray ;
     border: black solid 2px;
@@ -54,9 +46,6 @@
     padding:60px 0px 0px 0px;
 
   }
-  #card-text{
-    margin: 15px;
-  }
   .form-field input  {
     border: 2px solid black;
     border-radius: 4px;
@@ -65,13 +54,6 @@
     height: 20px;
   }
   
-  #textarea-form-card{
-    border-radius: 4px;
-    border: 2px solid black;
-    padding: 10px 11px;
-    height: 160px;
-    margin: 5px;
-  }
   .submit-btn{
     border: 2px solid black;
     border-radius: 4px;
@@ -93,4 +75,8 @@
 }
 .page-container{
   padding: 56px 0px 0px 0px;
+}
+
+.todo-list{
+  text-align: left;
 }

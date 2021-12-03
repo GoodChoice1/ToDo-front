@@ -3,6 +3,9 @@
       <router-link class="link" to ="/">
         Список дел
       </router-link>
+      <router-link class="link" to = "/todo">
+        Задание
+      </router-link>
       <router-link class="link" to = "/info">
         Инфо
       </router-link>

@@ -40,6 +40,15 @@ const routes = [
     },
     component: () => import("@/pages/RegistrationPage.vue"),
   },
+  {
+    path: "/todo",
+    name: "Todo",
+    meta: {
+      title: "Задание",
+      layout: "main-layout",
+    },
+    component: () => import("@/pages/ToDoPage.vue"),
+  },
 ];
 
 const router = new VueRouter({
