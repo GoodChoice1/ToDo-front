@@ -130,22 +130,6 @@ export async function changeTodoFav(todoId, data) {
   }
 }
 
-export async function deleteTodo(todoId) {
-  try {
-    const responce = await http.delete("/todos/" + todoId, {
-      headers: {
-        "Content-Type": "application/json",
-        token: localStorage.accessToken,
-      },
-    });
-    localStorage.removeItem("todoId")
-    return responce.data;
-  } catch (error) {
-    console.log({ error });
-    throw error;
-  }
-}
-
 export async function deleteTodos() {
   try {
     const responce = await http.delete("/todos/", {
@@ -193,11 +177,13 @@ export async function getUser() {
   }
 }
 
-export async function updateUser(data) {
+export async function updateUser(login,email,name) {
     try {
       const responce = await http.patch("/user/me" , 
       {
-        ...data
+        login,
+        email,
+        name
       },
       {
         headers: {
@@ -205,6 +191,67 @@ export async function updateUser(data) {
           token: localStorage.accessToken,
         },
       });
+      return responce.data;
+    } catch (error) {
+      console.log({ error });
+      throw error;
+    }
+  }
+
+  export async function updateUserPass(oldPassword,newPassword) {
+    try {
+      const responce = await http.patch("/user/password" , 
+      {
+        oldPassword,
+        newPassword
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          token: localStorage.accessToken,
+        },
+      });
+      return responce.data;
+    } catch (error) {
+      console.log({ error });
+      throw error;
+    }
+  }
+
+  export async function deleteTodoById(id){
+    try {
+      const responce = await http.delete("/todos/"+ id ,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          token: localStorage.accessToken,
+        },
+      });
+      localStorage.removeItem('todoId')
+      return responce.data
+    } catch (error) {
+      console.log({error})
+    }
+  }
+
+  export async function changeTodo(id,title,description,priority,isDone,isFavourite) {
+    try {
+      const responce = await http.patch(
+        "/todos/" + id,
+        {
+          title,
+          description,
+          priority,
+          isDone,
+          isFavourite
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            token: localStorage.accessToken,
+          },
+        }
+      );
       return responce.data;
     } catch (error) {
       console.log({ error });

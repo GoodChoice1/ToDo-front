@@ -29,13 +29,20 @@
         <section class="todo-list">
             <ul>
                 <li v-for="todoItem in todoList" :key="todoItem.id" class="todo">
-                    <a @click="redirect(todoItem.id)">
                     <div id="title">{{todoItem.title}}</div>
-                    <div id="description">Описание: {{ todoItem.description}}</div>
-                    </a>
                     <div id="checkbox">Выполнено <input @change="toggleCheckboxDone(todoItem.id,!todoItem.isDone)" type="checkbox" :checked="todoItem.isDone"></div>
                     <div id="checkbox">В избранном <input @change="toggleCheckboxFav(todoItem.id,!todoItem.isFavourite)" type="checkbox" :checked="todoItem.isFavourite"></div>
                     <div id="priority">Приоритет: {{todoItem.priority}}</div>
+                    <div>
+                        <button @click="redirect(todoItem.id)" class="submit-btn" type="submit">
+                            Просмотреть задачу
+                        </button>
+                    </div>
+                    <div>
+                        <button @click="deleteTodo(todoItem.id)" class="submit-btn" type="submit">
+                            Удалить задачу
+                        </button>
+                    </div>
                 </li>
             </ul>
         </section>
@@ -43,8 +50,7 @@
 </template>
 
 <script>
-import { getTodoList, createTodo, deleteTodos, changeTodoDone,changeTodoFav } from '@/netClient/dataService.js'
-// deleteTodo
+import { getTodoList, createTodo, deleteTodos, changeTodoDone,changeTodoFav, deleteTodoById } from '@/netClient/dataService.js'
 
 export default ({
     name: 'HomePage',
@@ -53,6 +59,9 @@ export default ({
     },
     data: () => ({
         todoList: [],
+        title: '',
+        description: '',
+        priority: '',
     }),
     methods : {
         async fetchTodoList(){
@@ -107,16 +116,16 @@ export default ({
                 console.error({ error });
             }
         },
-        // async deleteTodo(){
-        //     try {
-        //         await deleteTodo(
-
-        //         )
-        //      this.fetchTodoList();
-        //     } catch (error) {
-        //         console.error({ error });
-        //     }
-        // },
+        async deleteTodo(id){
+            try {
+                await deleteTodoById(
+                    id
+                )
+             this.fetchTodoList();
+            } catch (error) {
+                console.error({ error });
+            }
+        },
     }
 })
 </script>

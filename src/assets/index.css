@@ -42,10 +42,7 @@
     position: fixed;
     z-index: 100;
   }
-  #page{
-    padding:60px 0px 0px 0px;
-
-  }
+  
   .form-field input  {
     border: 2px solid black;
     border-radius: 4px;
