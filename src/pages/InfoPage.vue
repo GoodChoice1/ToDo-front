@@ -10,7 +10,7 @@
 
 <script>
 import { getUser } from '@/netClient/dataService';
-// import { updateUser } from '@/netClient/dataService';
+// updateUser
 export default {
   name: "InfoPage",
   data: () => ({

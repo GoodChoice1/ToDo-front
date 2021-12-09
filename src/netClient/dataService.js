@@ -109,6 +109,27 @@ export async function changeTodoDone(todoId, data) {
   }
 }
 
+export async function changeTodoFav(todoId, data) {
+  try {
+    const responce = await http.patch(
+      "/todos/" + todoId,
+      {
+        isFavourite: data
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          token: localStorage.accessToken,
+        },
+      }
+    );
+    return responce.data;
+  } catch (error) {
+    console.log({ error });
+    throw error;
+  }
+}
+
 export async function deleteTodo(todoId) {
   try {
     const responce = await http.delete("/todos/" + todoId, {

@@ -4,7 +4,7 @@
         <div id="title">{{userInfo.title}}</div>
         <div id="description">Описание: {{ userInfo.description}}</div>
         <div  id="checkbox">Выполнено <input  type="checkbox" :checked="userInfo.isDone"></div>
-        <div id="checkbox">В избранном <input  type="checkbox" :checked="userInfo.isFavourity"></div>
+        <div id="checkbox">В избранном <input  type="checkbox" :checked="userInfo.isFavourite"></div>
         <div id="priority">Приоритет: {{userInfo.priority}}</div>
     </li>
   </div>

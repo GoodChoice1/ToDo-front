@@ -1,13 +1,9 @@
 <template>
     <div class="auth-layout">
-        <div class="page-title">
-        </div>
         <div class="page-container">
             <router-view/>
         </div>
     </div>
-
-
 </template>
 
 <script>

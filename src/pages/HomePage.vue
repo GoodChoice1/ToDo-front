@@ -18,7 +18,7 @@
 
                     <div class="form-field">
                         <label for="priority">Приоритет<br/></label>
-                        <input v-model="priority" id="priority" type="text">
+                        <input v-model="priority" id="priority" type="number">
                     </div>
 
                     <button class="submit-btn" type="submit">
@@ -32,10 +32,10 @@
                     <a @click="redirect(todoItem.id)">
                     <div id="title">{{todoItem.title}}</div>
                     <div id="description">Описание: {{ todoItem.description}}</div>
-                    <div id="checkbox">Выполнено <input @change="toggleCheckboxDone(todoItem.id,!todoItem.isDone)" type="checkbox" :checked="todoItem.isDone"></div>
-                    <div id="checkbox">В избранном <input type="checkbox" :checked="todoItem.isFavourite"></div>
-                    <div id="priority">Приоритет: {{todoItem.priority}}</div>
                     </a>
+                    <div id="checkbox">Выполнено <input @change="toggleCheckboxDone(todoItem.id,!todoItem.isDone)" type="checkbox" :checked="todoItem.isDone"></div>
+                    <div id="checkbox">В избранном <input @change="toggleCheckboxFav(todoItem.id,!todoItem.isFavourite)" type="checkbox" :checked="todoItem.isFavourite"></div>
+                    <div id="priority">Приоритет: {{todoItem.priority}}</div>
                 </li>
             </ul>
         </section>
@@ -43,11 +43,8 @@
 </template>
 
 <script>
-import { getTodoList } from '@/netClient/dataService.js'
-import { createTodo } from '@/netClient/dataService';
-// import { deleteTodo } from '@/netClient/dataService';
-import { deleteTodos } from '@/netClient/dataService';
-import { changeTodoDone } from '@/netClient/dataService';
+import { getTodoList, createTodo, deleteTodos, changeTodoDone,changeTodoFav } from '@/netClient/dataService.js'
+// deleteTodo
 
 export default ({
     name: 'HomePage',
@@ -87,7 +84,17 @@ export default ({
                     id,
                     isDone
                 )
-                this.fetchTodoList();
+            } catch (error) {
+                console.error({ error });
+            }
+        },
+
+        async toggleCheckboxFav(id,isFavourite){
+            try {
+                await changeTodoFav(
+                    id,
+                    isFavourite
+                )
             } catch (error) {
                 console.error({ error });
             }
