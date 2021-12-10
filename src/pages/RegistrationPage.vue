@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="onFormSubmit">
+    <form @submit.prevent="onFormSubmit" class="form">
 
         <div class="form-field">
             <label for="login">Login<br/></label>
@@ -39,7 +39,7 @@
 
 <script>
 
-import {register} from '@/netClient/dataService';
+import {register} from '@/netClient/services/authService';
 
 export default {
     name: 'RegistrationPage',

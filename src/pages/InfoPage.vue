@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { getUser, updateUser, updateUserPass } from '@/netClient/dataService';
+import { getUser, updateUser, updateUserPass } from '@/netClient/services/userService';
 export default {
   name: "InfoPage",
   data: () => ({

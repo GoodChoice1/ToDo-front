@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { getTodo, deleteTodoById,changeTodoDone,changeTodoFav, changeTodo } from '@/netClient/dataService';
+import { getTodo, deleteTodoById,changeTodoDone,changeTodoFav, changeTodo } from '@/netClient/services/todoService';
 export default {
   name: "TodoPage",
   data: () => ({

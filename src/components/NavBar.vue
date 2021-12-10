@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { logout } from '@/netClient/dataService.js'
+import { logout } from '@/netClient/services/userService.js'
 
 export default {
   name: "NavBar",
